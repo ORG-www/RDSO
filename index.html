@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Theme Made By www.w3schools.com -->
-  <title> CovidoLogy.Org</title>
+ 
+  <title> queries@RDSO</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -420,7 +420,18 @@ $(document).ready(function(){
     });
   });
 })
-</script>
 
+  window.watsonAssistantChatOptions = {
+      integrationID: "3c4d6cf6-38af-4765-b030-f71ffcf7ea48", // The ID of this integration.
+      region: "eu-gb", // The region your integration is hosted in.
+      serviceInstanceID: "deb4e7c4-addd-4d33-91ac-605944703e43", // The ID of your service instance.
+      onLoad: function(instance) { instance.render(); }
+    };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js"
+    document.head.appendChild(t);
+  });
+</script>  
 </body>
 </html>
