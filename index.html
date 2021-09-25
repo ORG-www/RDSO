@@ -247,7 +247,7 @@
   <div class="row">
    
     <div class="col-sm-8">
-      <h2>Directorates</h2><br>
+      <h2>You can send your Query at the RDSO mail by posting your comment here</h2><br>
       <form action="mailto:someone@example.com" method="post" enctype="text/plain">
 Name:<br>
 <input type="text" name="name"><br>
@@ -258,11 +258,28 @@ Comment:<br>
 <input type="submit" value="Send">
 <input type="reset" value="Reset">
 </form>
-
-    </div>
+   </div>
   </div>
 </div>
 
+   <div class="container-fluid bg-grey">
+  <div class="row">
+   <div class="col-sm-8">
+   <a  target="_blank" title="Contact Us On WhatsApp" href="https://web.whatsapp.com/send?phone=+91xxxxxxxxx&amp;text=Hi, I would like to get more information.." class="whatsapplink hidemobile" style="background-color:#2DC100">
+<i class="fa fa-fw fa-whatsapp" style="color:#fff"></i>
+<span style="color:#fff">
+    Contact Us On WhatsApp        </span>
+</a>
+<a  target="_blank" title="Contact Us On WhatsApp" href="https://api.whatsapp.com/send?phone=+91xxxxxxxxx&text=Hi,%20I%20would%20like%20to%20get%20more%20information.." class="whatsapplink hideweb" style="background-color:#2DC100">
+<i class="fa fa-fw fa-whatsapp" style="color:#fff"></i>
+<span style="color:#fff">
+    Contact Us On WhatsApp        </span>
+</a>
+ </div>
+  </div>
+</div>
+   
+    
 <!-- Container (Services Section) -->
 <div id="services" class="container-fluid text-center">
   <h2>SERVICES</h2>
@@ -427,5 +444,16 @@ $(document).ready(function(){
     document.head.appendChild(t);
   });
 </script>  
-</body>
+<script type="text/javascript"> 
+var mobile = (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));  
+if (mobile) { 
+
+$('.hidemobile').css('display', 'none'); // OR you can use $('.hidemobile').hide();
+} 
+else 
+{ 
+$('.hideweb').css('display', 'none'); // OR you can use $('.hideweb').hide();
+}
+</script>
+ </body>
 </html>
