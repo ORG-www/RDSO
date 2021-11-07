@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js" integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <style>
   body {
     font: 400 15px Lato, sans-serif;
@@ -368,7 +369,127 @@ Comment:<br>
 </div>
 
 <!-- Container (Pricing Section) -->
+<div class="container-fluid text-center">
+  
+    <h2>COVID-19 INDIA UPDATE</h2>
+    <h5 = "class-muted">
+     Get the Live results of the cases in all the states</h5>
+</div>
+    
+     <div class="container">
+        <div class="row slideanim">
+            <div class="col-sm-3 text-warning">
+                <h5>CONFIRMED</h5>
+                <p id="confirmed">
+                </p>
+            </div>
+        </div>
+        <div class="row slideanim">
+            <div class="col-sm-3 text-info">
+                <h5>ACTIVE</h5>
+                <p id="active">
+                </p>
+            </div>
+        </div>
+        <div class="row slideanim">
+            <div class="col-sm-3 text-success">
+                <h5>RECOVERED</h5>
+                <p id="recovered">
+                </p>
+            </div>
+        </div>
+        <div class="row slideanim">
+            <div class="col-sm-3 text-danger">
+                <h5>DEATHS</h5>
+                <p id="deaths">
+                </p>
+            </div>
+        </div> 
+        <canvas id="myChart"></canvas>
+     </div>
+     
+     <script>
+        $(document).ready(function(){
+            var url="https://api.covid19india.org/data.json"
+        
+            $.getJSON(url, function(data){
+                console.log(data)
+            
+            
+                var total_active, total_deaths, total_confirmed, total_recovered
 
+                var state=[]
+                var deaths=[]
+                var recovered=[]
+                var confirmed=[]
+
+                $.each(data.statewise,function(id,obj){
+                    state.push(obj.state)
+                    deaths.push(obj.deaths)
+                    confirmed.push(obj.confirmed)
+                    recovered.push(obj.recovered)
+                })
+                 
+                 state.shift()
+                 confirmed.shift()
+                 deaths.shift()
+                 recovered.shift()
+
+                 console.log(state)
+
+
+                
+                
+                total_active=data.statewise[0].active
+                total_confirmed=data.statewise[0].confirmed
+                total_recovered=data.statewise[0].recovered
+                total_deaths=data.statewise[0].deaths
+
+                $("#active").append(total_active)
+                $("#deaths").append(total_deaths)
+                $("#confirmed").append(total_confirmed)
+                $("#recovered").append(total_recovered)
+
+                var myChart= document.getElementById("myChart").getContext('2d')
+                var chart= new Chart(myChart,{
+                    type:'line',
+                    data:{
+                        lables:states,
+                        datasets:[
+                        {
+                         label: "Confirmed Cases",
+                         data: confirmed,
+                         backgroundColor:"#f1c40f",
+                         minBarLength: 100,
+                        },
+                        
+                        {
+                            label: "Recovered Cases",
+                            data: recovered,
+                            backgroundColor:"#2ecc71",
+                            minBarLength: 100,   
+                        },
+                        {
+                            label: "Deceased Cases",
+                            data: deaths,
+                            backgroundColor:"#e74c3c",
+                            minBarLength: 100,
+                        }
+                            ]
+                    },
+                    options:{}
+                })
+
+
+            })
+        })
+       
+      
+
+
+
+   
+    
 
 <!-- Container (Contact Section) -->
 <div id="contact" class="container-fluid bg-grey">
@@ -457,17 +578,83 @@ else
 $('.hideweb').css('display', 'none'); // OR you can use $('.hideweb').hide();
 }
 </script>
- 
-<script>
- var settings = {
-  "url": "https://api.covidindiatracker.com/state_data.json",
-  "method": "GET",
-  "timeout": 0,
-};
 
-$.ajax(settings).done(function (response) {
-  console.log(response);
-});
+<script> 
+ $(document).ready(function(){
+            var url="https://api.covid19india.org/data.json"
+        
+            $.getJSON(url, function(data){
+                console.log(data)
+            
+            
+                var total_active, total_deaths, total_confirmed, total_recovered
+
+                var state=[]
+                var deaths=[]
+                var recovered=[]
+                var confirmed=[]
+
+                $.each(data.statewise,function(id,obj){
+                    state.push(obj.state)
+                    deaths.push(obj.deaths)
+                    confirmed.push(obj.confirmed)
+                    recovered.push(obj.recovered)
+                })
+                 
+                 state.shift()
+                 confirmed.shift()
+                 deaths.shift()
+                 recovered.shift()
+
+                 console.log(state)
+
+
+                
+                
+                total_active=data.statewise[0].active
+                total_confirmed=data.statewise[0].confirmed
+                total_recovered=data.statewise[0].recovered
+                total_deaths=data.statewise[0].deaths
+
+                $("#active").append(total_active)
+                $("#deaths").append(total_deaths)
+                $("#confirmed").append(total_confirmed)
+                $("#recovered").append(total_recovered)
+
+                var myChart= document.getElementById("myChart").getContext('2d')
+                var chart= new Chart(myChart,{
+                    type:'line',
+                    data:{
+                        lables:states,
+                        datasets:[
+                        {
+                         label: "Confirmed Cases",
+                         data: confirmed,
+                         backgroundColor:"#f1c40f",
+                         minBarLength: 100,
+                        },
+                        
+                        {
+                            label: "Recovered Cases",
+                            data: recovered,
+                            backgroundColor:"#2ecc71",
+                            minBarLength: 100,   
+                        },
+                        {
+                            label: "Deceased Cases",
+                            data: deaths,
+                            backgroundColor:"#e74c3c",
+                            minBarLength: 100,
+                        }
+                            ]
+                    },
+                    options:{}
+                });
+
+
+            });
+        })
+       
  </script>
  </body>
 </html>
