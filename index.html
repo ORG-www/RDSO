@@ -343,15 +343,15 @@ Comment:<br>
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <h4>1<br><a href="https://online.flippingbook.com/view/1032094628/" class="fbo-embed" data-fbo-id="1032094628" data-fbo-lightbox="yes" data-fbo-width="740px" data-fbo-height="480px" data-fbo-version="1" style="max-width: 100%">Untitled-2</a><script async defer src="https://online.flippingbook.com/EmbedScriptUrl.aspx?m=redir&hid=1032094628"></script>
+        <h4>1<br><a href="https://online.flippingbook.com/view/472692659/" class="fbo-embed" data-fbo-id="472692659" data-fbo-ratio="16:9" data-fbo-lightbox="yes" data-fbo-width="100%" data-fbo-height="auto" data-fbo-version="1" style="max-width: 100%">RDSO Annual Report 2019-20</a><script async defer src="https://online.flippingbook.com/EmbedScriptUrl.aspx?m=redir&hid=472692659"></script>
 </h4>
       </div>
       <div class="item">
-        <h4>2<br><a href="https://online.flippingbook.com/view/1032099745/" class="fbo-embed" data-fbo-id="1032099745" data-fbo-lightbox="yes" data-fbo-width="740px" data-fbo-height="480px" data-fbo-version="1" style="max-width: 100%">P_01.cdr</a><script async defer src="https://online.flippingbook.com/EmbedScriptUrl.aspx?m=redir&hid=1032099745"></script>
+        <h4>2<br><a href="https://online.flippingbook.com/view/472096886/" class="fbo-embed" data-fbo-id="472096886" data-fbo-ratio="16:9" data-fbo-lightbox="yes" data-fbo-width="100%" data-fbo-height="auto" data-fbo-version="1" style="max-width: 100%">Untitled-2</a><script async defer src="https://online.flippingbook.com/EmbedScriptUrl.aspx?m=redir&hid=472096886"></script>
 </h4>
       </div>
       <div class="item">
-        <h4>3<br><a href="https://online.flippingbook.com/view/1032091545/" class="fbo-embed" data-fbo-id="1032091545" data-fbo-lightbox="yes" data-fbo-width="740px" data-fbo-height="480px" data-fbo-version="1" style="max-width: 100%">RDSO Annual Report 2019-20</a><script async defer src="https://online.flippingbook.com/EmbedScriptUrl.aspx?m=redir&hid=1032091545"></script>
+        <h4>3<br><a href="https://online.flippingbook.com/view/472356219/" class="fbo-embed" data-fbo-id="472356219" data-fbo-ratio="16:9" data-fbo-lightbox="yes" data-fbo-width="100%" data-fbo-height="auto" data-fbo-version="1" style="max-width: 100%">P_01.cdr</a><script async defer src="https://online.flippingbook.com/EmbedScriptUrl.aspx?m=redir&hid=472356219"></script>
 </h4>
       </div>
     </div>
@@ -403,8 +403,7 @@ Comment:<br>
                 </p>
             </div>
         </div> 
-    <canvas id="myChart>
-    </canvas>  
+    
  </div>
      
      
@@ -499,82 +498,8 @@ $('.hideweb').css('display', 'none'); // OR you can use $('.hideweb').hide();
 }
 </script>
 
-<script> 
- $(document).ready(function(){
-            var url="https://api.covid19india.org/data.json"
-        
-            $.getJSON(url, function(data){
-                console.log(data)
-            
-            
-                var total_active, total_deaths, total_confirmed, total_recovered
 
-                var state=[]
-                var deaths=[]
-                var recovered=[]
-                var confirmed=[]
-
-                $.each(data.statewise,function(id,obj){
-                    state.push(obj.state)
-                    deaths.push(obj.deaths)
-                    confirmed.push(obj.confirmed)
-                    recovered.push(obj.recovered)
-                })
-                 
-                 state.shift()
-                 confirmed.shift()
-                 deaths.shift()
-                 recovered.shift()
-
-                 console.log(state)
-
-
-                
-                
-                total_active=data.statewise[0].active
-                total_confirmed=data.statewise[0].confirmed
-                total_recovered=data.statewise[0].recovered
-                total_deaths=data.statewise[0].deaths
-
-                $("#active").append(total_active)
-                $("#deaths").append(total_deaths)
-                $("#confirmed").append(total_confirmed)
-                $("#recovered").append(total_recovered)
-
-                var myChart= document.getElementById("myChart").getContext('2d')
-                var chart= new Chart(myChart,{
-                    type:'line',
-                    data:{
-                        lables:state,
-                        datasets:[
-                        {
-                         label: "Confirmed Cases",
-                         data: confirmed,
-                         backgroundColor:"#f1c40f",
-                         minBarLength: 100,
-                        },
-                        
-                        {
-                            label: "Recovered Cases",
-                            data: recovered,
-                            backgroundColor:"#2ecc71",
-                            minBarLength: 100,   
-                        },
-                        {
-                            label: "Deceased Cases",
-                            data: deaths,
-                            backgroundColor:"#e74c3c",
-                            minBarLength: 100,
-                        }
-                            ]
-                    },
-                    options:{}
-                })
-
-
-            })
-        })
        
- </script>
+
  </body>
 </html>
